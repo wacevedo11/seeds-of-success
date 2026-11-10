@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="2000" height="2000">
+  <defs>
+    <!-- Clip path to keep internal graphics within the circle -->
+    <clipPath id="circleClip">
+      <circle cx="500" cy="500" r="482" />
+    </clipPath>
+  </defs>
+
+  <!-- Base Light Green Circle -->
+  <circle cx="500" cy="500" r="482" fill="#a8d888" />
+
+  <!-- Inner Graphics -->
+  <g clip-path="url(#circleClip)">
+    <!-- Sun (Full Circular Disc) -->
+    <circle cx="500" cy="450" r="240" fill="#fde500" />
+
+    <!-- Sun Rays (Dark Yellow Lines) -->
+    <g stroke="#7b7800" stroke-width="8" stroke-linecap="round">
+      <line x1="500" y1="50" x2="500" y2="130" />
+      <line x1="600" y1="70" x2="580" y2="145" />
+      <line x1="695" y1="120" x2="655" y2="185" />
+      <line x1="775" y1="190" x2="720" y2="245" />
+      <line x1="835" y1="280" x2="765" y2="320" />
+      <line x1="865" y1="380" x2="790" y2="405" />
+
+      <line x1="400" y1="70" x2="420" y2="145" />
+      <line x1="305" y1="120" x2="345" y2="185" />
+      <line x1="225" y1="190" x2="280" y2="245" />
+      <line x1="165" y1="280" x2="235" y2="320" />
+      <line x1="135" y1="380" x2="210" y2="405" />
+    </g>
+
+    <!-- Field Hills -->
+    <path d="M -10 520 Q 240 640 500 700 L 500 1020 L -10 1020 Z" fill="#a8d888" />
+    <path d="M -10 520 Q 240 640 500 700" fill="none" stroke="#00722b" stroke-width="9" />
+    <path d="M -10 600 Q 220 720 450 780" fill="none" stroke="#00722b" stroke-width="8" />
+    <path d="M -10 680 Q 200 800 390 860" fill="none" stroke="#00722b" stroke-width="8" />
+    <path d="M -10 760 Q 180 870 330 930" fill="none" stroke="#00722b" stroke-width="8" />
+
+    <path d="M 1010 500 Q 720 630 220 890 L 220 1020 L 1010 1020 Z" fill="#9bd078" />
+    <path d="M 1010 500 Q 720 630 220 890" fill="none" stroke="#00722b" stroke-width="9" />
+    <path d="M 1010 580 Q 740 700 290 940" fill="none" stroke="#00722b" stroke-width="8" />
+    <path d="M 1010 660 Q 760 770 380 980" fill="none" stroke="#00722b" stroke-width="8" />
+    <path d="M 1010 740 Q 780 840 500 1010" fill="none" stroke="#00722b" stroke-width="8" />
+
+    <!-- Plant Sprout -->
+    <line x1="500" y1="700" x2="500" y2="470" stroke="#00722b" stroke-width="10" stroke-linecap="round" />
+
+    <!-- Leaves -->
+    <path d="M 500 470 C 450 390 460 330 500 300 C 540 330 550 390 500 470 Z" fill="#a8d888" stroke="#00722b" stroke-width="8" stroke-linejoin="round" />
+    <line x1="500" y1="470" x2="500" y2="330" stroke="#00722b" stroke-width="6" />
+
+    <path d="M 500 505 C 410 450 340 480 335 520 C 375 565 445 545 500 505 Z" fill="#a8d888" stroke="#00722b" stroke-width="8" stroke-linejoin="round" />
+    <path d="M 500 505 Q 410 505 365 515" fill="none" stroke="#00722b" stroke-width="6" />
+
+    <path d="M 500 505 C 590 450 660 480 665 520 C 625 565 555 545 500 505 Z" fill="#a8d888" stroke="#00722b" stroke-width="8" stroke-linejoin="round" />
+    <path d="M 500 505 Q 590 505 575 515" fill="none" stroke="#00722b" stroke-width="6" />
+  </g>
+
+  <!-- Uniform Dark Green Outer Border Ring (Overlaid) -->
+  <circle cx="500" cy="500" r="482" fill="none" stroke="#00722b" stroke-width="16" />
+</svg>
