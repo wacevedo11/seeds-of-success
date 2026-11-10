@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2f7138">
+    <title>Soil Health Farm Adventure | Seeds of Success</title>
+    <link rel="icon" type="image/x-icon" href="assets/seeds-of-success-logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css-js-files/module1.css">
+    <script src="css-js-files/module1.js" defer></script>
+  </head>
+
+  <body>
+    <!-- NAVBAR MATCHING foodmodules.html -->
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <div class="logo-icon"></div>
+          <span class="logo-text">Seeds of Success</span>
+        </a>
+        <nav class="nav-links" id="navLinks">
+          <a href="index.html">HOME</a>
+          <a href="about.html">ABOUT</a>
+          <a href="gallery.html">GALLERY</a>
+          <a href="resources.html">RESOURCES</a>
+          <a href="contact.html">CONTACT</a>
+          <div class="nav-sound-tools">
+            <button class="tool-btn" id="voiceBtn" aria-pressed="true">Voice on</button>
+            <button class="tool-btn" id="musicBtn" aria-pressed="false">Music off</button>
+          </div>
+        </nav>
+        <div class="hamburger" id="hamburger">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="welcome" id="welcome">
+        <div class="welcome-copy">
+          <span class="eyebrow">A Little Farm. A Big Adventure.</span>
+          <h1>Let’s grow a<br><em>healthy farm!</em></h1>
+          <p>Meet the farmer, count seeds, help a worm, and explore healthy soil. Ready, little farmer?</p>
+          <button class="primary-btn" id="startBtn">Let’s play! <span>➜</span></button>
+        </div>
+        <div class="welcome-art">
+          <img class="welcome-farmer" src="assets/soil-health/farmer.png" alt="Friendly farmer holding pitchfork">
+          <img class="welcome-pig" src="assets/soil-health/dog.png" alt="Happy farm puppy">
+          <img class="welcome-chicken" src="assets/soil-health/chicken.png" alt="Friendly chicken">
+        </div>
+      </section>
+
+      <section class="game-shell hidden" id="game">
+        <div class="farm-banner">
+          <img src="assets/soil-health/farm-bg.jpg" alt="Sunny green farm with a red barn">
+          <div class="banner-label">
+            <b>Welcome to the farm!</b>
+            <small>Let’s take care of our soil.</small>
+          </div>
+          <img class="banner-farmer" src="assets/soil-health/farmer.png" alt="Farmer holding pitchfork">
+        </div>
+
+        <div class="journey-head">
+          <div>
+            <h2>Six Little Missions</h2>
+          </div>
+          <div class="star-score">
+            <span>⭐</span>
+            <b id="starCount">0</b>
+            <small>stars</small>
+          </div>
+        </div>
+
+        <nav class="mission-nav" aria-label="Learning missions">
+          <button class="mission-tab active" data-step="0"><span class="step-num">1</span><b>Seeds</b></button>
+          <button class="mission-tab" data-step="1"><span class="step-num">2</span><b>Helpers</b></button>
+          <button class="mission-tab" data-step="2"><span class="step-num">3</span><b>Grow</b></button>
+          <button class="mission-tab" data-step="3"><span class="step-num">4</span><b>Math</b></button>
+          <button class="mission-tab" data-step="4"><span class="step-num">5</span><b>Layers</b></button>
+          <button class="mission-tab" data-step="5"><span class="step-num">6</span><b>Quiz</b></button>
+        </nav>
+
+        <section class="mission-card" id="mission0">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 1 · COUNTING</span>
+            <h2>Count the Farm Friends!</h2>
+            <p>Look at the insects on the farm. How many do you see?</p>
+          </div>
+          <div class="activity-panel seed-panel">
+            <div class="activity-visual">
+              <div style="display: flex; gap: 20px; align-items: center; justify-content: center;">
+                <img class="seed-picture" src="assets/soil-health/insect1.png" alt="Ladybug insect" style="width: 45%;">
+                <img class="seed-picture" src="assets/soil-health/insect2.png" alt="Butterfly insect" style="width: 45%;">
+              </div>
+            </div>
+            <div class="activity-question">
+              <div class="speech-bubble">How many insects are here?</div>
+              <div class="number-options" id="seedAnswers">
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+              </div>
+              <p class="feedback" id="seedFeedback" aria-live="polite">Touch a number!</p>
+            </div>
+          </div>
+          <div class="fact-strip">Counting helps us notice and compare tiny things in nature.</div>
+          <button class="next-btn hidden" id="next0">Next: Meet a soil helper <span>➜</span></button>
+        </section>
+
+        <section class="mission-card hidden" id="mission1">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 2 · LIVING SOIL</span>
+            <h2>Find the Soil Helper!</h2>
+            <p>Our soil friends help make tunnels under the ground!</p>
+          </div>
+          <div class="activity-panel worm-panel">
+            <div class="worm-scene">
+              <div class="soil-sky">Above the ground</div>
+              <div class="soil-layer">
+                <img src="assets/soil-health/worm.png" alt="Worm soil helper">
+                <span class="soil-label">UNDER THE SOIL</span>
+              </div>
+            </div>
+            <div class="activity-question">
+              <div class="speech-bubble">Who helps protect our farm plants?</div>
+              <div class="choice-grid" id="wormAnswers">
+                <button data-correct="false"><img src="assets/soil-health/dog.png" alt="Dog"><span>Dog</span></button>
+                <button data-correct="true"><img src="assets/soil-health/worm.png" alt="Worm"><span>Worm</span></button>
+                <button data-correct="false"><img src="assets/soil-health/chicken.png" alt="Chicken"><span>Chicken</span></button>
+              </div>
+              <p class="feedback" id="wormFeedback" aria-live="polite">Tap your answer!</p>
+            </div>
+          </div>
+          <div class="fact-strip">Helpers keep harmful bugs away and enrich the soil!</div>
+          <button class="next-btn hidden" id="next1">Next: Learn about farming <span>➜</span></button>
+        </section>
+
+        <section class="mission-card hidden" id="mission2">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 3 · PLANT SCIENCE</span>
+            <h2>Help the Plants Grow!</h2>
+            <p>Plants need care to grow big and strong!</p>
+          </div>
+          <div class="growth-activity">
+            <div class="growth-hint">🌱 Tap the stages in order: <b>1 → 2 → 3 → 4 → 5 → 6 → 7</b></div>
+            <div class="growth-options" id="growthOptions">
+              <button data-stage="0">
+                <div class="card-img-wrap"><img src="assets/soil-health/seed1.png" alt="The Seed"></div>
+                <span>1. The Seed</span>
+              </button>
+              <button data-stage="2">
+                <div class="card-img-wrap"><img src="assets/soil-health/seed3.png" alt="The Roots"></div>
+                <span>3. The Roots</span>
+              </button>
+              <button data-stage="6">
+                <div class="card-img-wrap"><img src="assets/soil-health/seed7.png" alt="Full Harvest"></div>
+                <span>7. Harvest</span>
+              </button>
+              <button data-stage="5">
+                <div class="card-img-wrap"><img src="assets/soil-health/seed6.png" alt="Tassels & Ears"></div>
+                <span>6. Tassels</span>
+              </button>
+              <button data-stage="3">
+                <div class="card-img-wrap"><img src="assets/soil-health/seed4.png" alt="Little Leaves"></div>
+                <span>4. Leaves</span>
+              </button>
+              <button data-stage="4">
+                <div class="card-img-wrap"><img src="assets/soil-health/seed5.png" alt="Growing Tall"></div>
+                <span>5. Growing Tall</span>
+              </button>
+              <button data-stage="1">
+                <div class="card-img-wrap"><img src="assets/soil-health/seed2.png" alt="The Sprout"></div>
+                <span>2. The Sprout</span>
+              </button>
+            </div>
+            <div class="growth-progress" id="growthProgress">
+              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+            </div>
+            <p class="feedback" id="growthFeedback" aria-live="polite">Tap step 1 (The Seed) first!</p>
+          </div>
+          <div class="fact-strip">Plants need healthy soil, water, sunlight, and air.</div>
+          <button class="next-btn hidden" id="next2">Next: Farm math <span>➜</span></button>
+        </section>
+
+        <section class="mission-card hidden" id="mission3">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 4 · FARM MATH</span>
+            <h2>How many cows on the farm?</h2>
+            <p>Look at the cute cows. Count them, then choose the number!</p>
+          </div>
+          <div class="animal-math">
+            <div class="animal-row">
+              <div class="animal-card"><img src="assets/soil-health/cow.png" alt="Cow"></div>
+              <div class="animal-card"><img src="assets/soil-health/cow.png" alt="Cow"></div>
+              <div class="animal-card"><img src="assets/soil-health/cow.png" alt="Cow"></div>
+            </div>
+            <div class="speech-bubble">How many cows are there?</div>
+            <div class="number-options" id="cowAnswers">
+              <button>2</button>
+              <button>3</button>
+              <button>4</button>
+              <button>5</button>
+            </div>
+            <p class="feedback" id="cowFeedback" aria-live="polite">Touch a number!</p>
+          </div>
+          <div class="fact-strip">Farmers count animals, seeds, and plants every single day.</div>
+          <button class="next-btn hidden" id="next3">Next: Soil Horizons Drag Game <span>➜</span></button>
+        </section>
+
+        <!-- MISSION 5: SOIL HORIZONS IMAGE-BASED DRAG & DROP GAME -->
+        <section class="mission-card hidden" id="mission4">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 5 · SOIL HEALTH SCIENCE</span>
+            <h2>Build the Soil Layers!</h2>
+            <p>Healthy soil has distinct layers (horizons) that store nutrients, hold water, and feed plants for farming! Drag or tap the soil layer picture cards into their correct order from Top to Bottom.</p>
+          </div>
+
+          <div class="soil-game-container">
+            <div class="soil-reference">
+              <h3>Soil Diagram Reference</h3>
+              <div class="image-wrapper">
+                <img src="assets/soil-health/soil-horizons.png" alt="Soil Horizons Diagram" id="soilHorizonsImg" onerror="this.onerror=null; this.src='assets/soil-health/soil-horizons.jpg';">
+              </div>
+            </div>
+
+            <div class="soil-drag-area">
+              <div class="drop-slots" id="dropSlots">
+                <div class="slot" data-order="0">
+                  <span class="slot-num">1 (Top Layer)</span>
+                  <div class="slot-content" id="slot-0"></div>
+                </div>
+                <div class="slot" data-order="1">
+                  <span class="slot-num">2 (Middle Layer)</span>
+                  <div class="slot-content" id="slot-1"></div>
+                </div>
+                <div class="slot" data-order="2">
+                  <span class="slot-num">3 (Lower Layer)</span>
+                  <div class="slot-content" id="slot-2"></div>
+                </div>
+                <div class="slot" data-order="3">
+                  <span class="slot-num">4 (Deep Rock)</span>
+                  <div class="slot-content" id="slot-3"></div>
+                </div>
+              </div>
+
+              <div class="layer-pool-title">Drag or click soil layer pictures to place them:</div>
+              <div class="draggable-layers" id="layerPool">
+                <div class="drag-item" draggable="true" data-layer-id="topsoil">
+                  <div class="layer-img-wrap"><img src="assets/soil-health/topsoil.png" alt="Organic Topsoil" onerror="this.src='assets/soil-health/seed1.png';"></div>
+                  <b>Organic Topsoil</b>
+                </div>
+                <div class="drag-item" draggable="true" data-layer-id="subsoil">
+                  <div class="layer-img-wrap"><img src="assets/soil-health/subsoil.png" alt="Subsoil" onerror="this.src='assets/soil-health/seed2.png';"></div>
+                  <b>Subsoil</b>
+                </div>
+                <div class="drag-item" draggable="true" data-layer-id="parent">
+                  <div class="layer-img-wrap"><img src="assets/soil-health/parent-material.png" alt="Parent Material" onerror="this.src='assets/soil-health/seed3.png';"></div>
+                  <b>Parent Material</b>
+                </div>
+                <div class="drag-item" draggable="true" data-layer-id="bedrock">
+                  <div class="layer-img-wrap"><img src="assets/soil-health/bedrock.png" alt="Bedrock" onerror="this.src='assets/soil-health/seed4.png';"></div>
+                  <b>Bedrock</b>
+                </div>
+              </div>
+
+              <div class="soil-actions">
+                <button class="secondary-btn" id="checkSoilBtn">Check Soil Layers ✓</button>
+                <button class="reset-btn" id="resetSoilBtn">Reset Layers ↺</button>
+              </div>
+
+              <p class="feedback" id="soilFeedback" aria-live="polite">Drag or click a layer picture to start building the soil profile!</p>
+            </div>
+          </div>
+
+          <div class="fact-strip">
+            <b>Why Soil Health Matters:</b> Topsoil takes hundreds of years to form! It holds essential minerals and organic material needed for sustainable agriculture.
+          </div>
+          <button class="next-btn hidden" id="next4">Next: Final Knowledge Quiz <span>➜</span></button>
+        </section>
+
+        <!-- MISSION 6: FINAL KNOWLEDGE QUIZ & ARCHIVE -->
+        <section class="mission-card hidden" id="mission5">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 6 · LITTLE FARMER QUIZ</span>
+            <h2>Test Your Soil & Farm Knowledge!</h2>
+            <p>Answer these 3 quick questions about what you learned on the farm to earn your official Certificate Archive!</p>
+          </div>
+
+          <div class="quiz-container" id="quizContainer">
+            <!-- Question 1 -->
+            <div class="quiz-question-box" id="qBox-0">
+              <h3>Question 1: Who helps make tunnels and enrich the soil underground?</h3>
+              <div class="quiz-options">
+                <button data-q="0" data-correct="false">A playful puppy</button>
+                <button data-q="0" data-correct="true">A helpful earthworm</button>
+                <button data-q="0" data-correct="false">A noisy chicken</button>
+              </div>
+              <p class="quiz-hint" id="qHint-0"></p>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="quiz-question-box hidden" id="qBox-1">
+              <h3>Question 2: Which soil layer is right at the top, rich in humus and plant roots?</h3>
+              <div class="quiz-options">
+                <button data-q="1" data-correct="true">Organic Topsoil</button>
+                <button data-q="1" data-correct="false">Solid Bedrock</button>
+                <button data-q="1" data-correct="false">Parent Material</button>
+              </div>
+              <p class="quiz-hint" id="qHint-1"></p>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="quiz-question-box hidden" id="qBox-2">
+              <h3>Question 3: Why is healthy soil so important for agriculture and farming?</h3>
+              <div class="quiz-options">
+                <button data-q="2" data-correct="false">It makes the farm look colorful</button>
+                <button data-q="2" data-correct="true">It stores nutrients and holds water for plants to grow big</button>
+                <button data-q="2" data-correct="false">It helps tractors drive faster</button>
+              </div>
+              <p class="quiz-hint" id="qHint-2"></p>
+            </div>
+          </div>
+
+          <div class="fact-strip">Great job testing your knowledge! Education and advocacy help protect our agricultural future.</div>
+          <button class="next-btn hidden" id="finishQuizBtn">Claim My Certificate Archive!</button>
+        </section>
+
+        <!-- CELEBRATION & ARCHIVE DOWNLOAD -->
+        <section class="celebration hidden" id="celebration">
+          <h2>You did it, little farmer!</h2>
+          <p>You completed all missions and earned your official Soil Health diploma!</p>
+          <div class="big-stars">⭐⭐⭐⭐⭐</div>
+
+          <button class="secondary-btn" id="againBtn" style="margin-top: 24px;"><a href="module1.html">Play again ↻</button></a>
+        </section>
+      </section>
+    </main>
+
+    <!-- FOOTER MATCHING HIERARCHY -->
+    <footer class="footer-section" id="contact">
+      <div class="footer-bottom">
+        <p>@2026 McCullough - UNCA</p>
+      </div>
+    </footer>
+
+  </body>
+
+</html>

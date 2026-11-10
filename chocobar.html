@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2f7138">
+    <title>Chocolate Bar Journey | Seeds of Success</title>
+    <link rel="icon" type="image/x-icon" href="assets/seeds-of-success-logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css-js-files/chocobar.css">
+    <script src="css-js-files/chocobar.js" defer></script>
+  </head>
+
+  <body>
+    <!-- NAVBAR MATCHING HIERARCHY -->
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <div class="logo-icon"></div>
+          <span class="logo-text">Seeds of Success</span>
+        </a>
+        <nav class="nav-links" id="navLinks">
+          <a href="index.html">HOME</a>
+          <a href="about.html">ABOUT</a>
+          <a href="gallery.html">GALLERY</a>
+          <a href="resources.html">RESOURCES</a>
+          <a href="contact.html">CONTACT</a>
+          <div class="nav-sound-tools">
+            <button class="tool-btn" id="voiceBtn" aria-pressed="true">Voice on</button>
+            <button class="tool-btn" id="musicBtn" aria-pressed="false">Music off</button>
+          </div>
+        </nav>
+        <div class="hamburger" id="hamburger">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO LANDING SECTION -->
+      <section class="welcome" id="welcome">
+        <div class="welcome-copy">
+          <span class="eyebrow">From Cacao Tree to Sweet Treat</span>
+          <h1>How is a<br><em>chocolate bar made?</em></h1>
+          <p>Harvest cacao pods, ferment seeds, and wrap your chocolate bar. Ready, junior chocolatier?</p>
+          <button class="primary-btn" id="startBtn">Let’s play! <span>➜</span></button>
+        </div>
+        <div class="welcome-art">
+          <img class="welcome-farmer" src="assets/food-system/chocolatebar/tree.png" alt="Cacao tree with ripe pods">
+        </div>
+      </section>
+
+      <!-- GAME EXPERIENCE CONTAINER -->
+      <section class="game-shell hidden" id="game">
+        <div class="farm-banner">
+          <img src="assets/food-system/chocolatebar/farm.jpg" alt="Tropical cacao farm plantation" onerror="this.onerror=null; this.src='assets/food-system/chocolatebar/cacao-tree.png';">
+          <div class="banner-label">
+            <b>Welcome to the Cacao Farm!</b>
+            <small>Follow the journey of chocolate making.</small>
+          </div>
+          <img class="banner-farmer" src="assets/food-system/chocolatebar/farmer.png" alt="Cacao farmer">
+        </div>
+
+        <div class="journey-head">
+          <div>
+            <h2>Six Chocolate Missions</h2>
+          </div>
+          <div class="star-score">
+            <span>⭐</span>
+            <b id="starCount">0</b>
+            <small>stars</small>
+          </div>
+        </div>
+
+        <!-- MISSION STEP TABS -->
+        <nav class="mission-nav" aria-label="Learning missions">
+          <button class="mission-tab active" data-step="0"><span class="step-num">1</span><b>Harvest</b></button>
+          <button class="mission-tab" data-step="1"><span class="step-num">2</span><b>Ferment</b></button>
+          <button class="mission-tab" data-step="2"><span class="step-num">3</span><b>Roast</b></button>
+          <button class="mission-tab" data-step="3"><span class="step-num">4</span><b>Grind</b></button>
+          <button class="mission-tab" data-step="4"><span class="step-num">5</span><b>Sequence</b></button>
+          <button class="mission-tab" data-step="5"><span class="step-num">6</span><b>Quiz</b></button>
+        </nav>
+
+        <!-- MISSION 1: HARVEST & COUNT CACAO PODS -->
+        <section class="mission-card" id="mission0">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 1 · HARVEST</span>
+            <h2>Harvest the Ripe Cacao Pods!</h2>
+            <p>Cacao pods grow on trunk and branches of cacao trees in tropical rainforest climates. How many pods are ready for harvest?</p>
+          </div>
+          <div class="activity-panel seed-panel">
+            <div class="activity-visual">
+              <div style="display: flex; gap: 16px; align-items: center; justify-content: center; flex-wrap: wrap;">
+                <img class="seed-picture" src="assets/food-system/chocolatebar/pods.png" alt="Ripe Cacao Pod" style="width: 28%;">
+                <img class="seed-picture" src="assets/food-system/chocolatebar/pods.png" alt="Ripe Cacao Pod" style="width: 28%;">
+                <img class="seed-picture" src="assets/food-system/chocolatebar/pods.png" alt="Ripe Cacao Pod" style="width: 28%;">
+                <img class="seed-picture" src="assets/food-system/chocolatebar/pods.png" alt="Ripe Cacao Pod" style="width: 28%;">
+              </div>
+            </div>
+            <div class="activity-question">
+              <div class="speech-bubble">How many ripe cacao pods do you count?</div>
+              <div class="number-options" id="seedAnswers">
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>5</button>
+              </div>
+              <p class="feedback" id="seedFeedback" aria-live="polite">Touch a number!</p>
+            </div>
+          </div>
+          <div class="fact-strip">Farmers hand-harvest ripe cacao pods using specialized machetes or shears so the tree stems are protected.</div>
+          <button class="next-btn hidden" id="next0">Next: Fermentation & Drying <span>➜</span></button>
+        </section>
+
+        <!-- MISSION 2: FERMENTATION & DRYING -->
+        <section class="mission-card hidden" id="mission1">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 2 · FERMENTATION</span>
+            <h2>Ferment and Dry the Beans!</h2>
+            <p>After pods are harvested, wet cacao beans are scooped out and placed in wooden boxes covered with banana leaves.</p>
+          </div>
+          <div class="activity-panel worm-panel">
+            <div class="worm-scene">
+              <div class="soil-sky">Sun-Drying Cacao Beans</div>
+              <div class="soil-layer" style="background: #5d4037; border-top: 10px solid #8d6e63;">
+                <img src="assets/food-system/chocolatebar/sprout.png" alt="Cacao Beans Drying in Sun" onerror="this.src='assets/food-system/chocolatebar/cacao-pod.png';">
+                <span class="soil-label">FERMENTATION & DRYING</span>
+              </div>
+            </div>
+            <div class="activity-question">
+              <div class="speech-bubble">What naturally develops rich chocolate flavor during drying?</div>
+              <div class="choice-grid" id="wormAnswers">
+                <button data-correct="false"><img src="assets/food-system/chocolatebar/water.png" alt="Cold Water" onerror="this.src='assets/food-system/chocolatebar/cacao-pod.png';"><span>Cold Water</span></button>
+                <button data-correct="true"><img src="assets/food-system/chocolatebar/sun.png" alt="Warm Sun" onerror="this.src='assets/food-system/chocolatebar/cacao-beans.png';"><span>Warm Sun & Heat</span></button>
+                <button data-correct="false"><img src="assets/food-system/chocolatebar/star.png" alt="Star" onerror="this.src='assets/food-system/chocolatebar/cacao-pod.png';"><span>Star</span></button>
+              </div>
+              <p class="feedback" id="wormFeedback" aria-live="polite">Tap your answer!</p>
+            </div>
+          </div>
+          <div class="fact-strip">Fermentation takes 5 to 7 days and is essential to convert bitter compounds into rich precursor chocolate flavors!</div>
+          <button class="next-btn hidden" id="next1">Next: Roasting & Winnowing <span>➜</span></button>
+        </section>
+
+        <!-- MISSION 3: ROASTING & WINNOWING -->
+        <section class="mission-card hidden" id="mission2">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 3 · ROASTING</span>
+            <h2>Roast & Winnow Cacao Nibs!</h2>
+            <p>Beans are roasted at precise temperatures, then cracked open to separate the thin husk shell from the rich cocoa nib inside!</p>
+          </div>
+          <div class="growth-activity">
+            <div class="growth-hint">🍫 Tap the steps in order: <b>1 → 2 → 3 → 4</b></div>
+            <div class="growth-options" id="growthOptions">
+              <button data-stage="0">
+                <div class="card-img-wrap"><img src="assets/food-system/chocolatebar/rawBeans.png" alt="1. Raw Cacao Bean" onerror="this.src='assets/food-system/chocolatebar/cacao-beans.png';"></div>
+                <span>1. Raw Beans</span>
+              </button>
+              <button data-stage="2">
+                <div class="card-img-wrap"><img src="assets/food-system/chocolatebar/crackShells.avif" alt="3. Cracked Shells" onerror="this.src='assets/food-system/chocolatebar/cacao-pod.png';"></div>
+                <span>3. Crack Shells</span>
+              </button>
+              <button data-stage="3">
+                <div class="card-img-wrap"><img src="assets/food-system/chocolatebar/cocoaNibs.avif" alt="4. Pure Cocoa Nibs" onerror="this.src='assets/food-system/chocolatebar/cacao-beans.png';"></div>
+                <span>4. Cocoa Nibs</span>
+              </button>
+              <button data-stage="1">
+                <div class="card-img-wrap"><img src="assets/food-system/chocolatebar/rostedBeans.png" alt="2. Roast Beans" onerror="this.src='assets/food-system/chocolatebar/cacao-beans.png';"></div>
+                <span>2. Roast Beans</span>
+              </button>
+            </div>
+            <div class="growth-progress" id="growthProgress">
+              <span>1</span><span>2</span><span>3</span><span>4</span>
+            </div>
+            <p class="feedback" id="growthFeedback" aria-live="polite">Tap step 1 (Raw Beans) first!</p>
+          </div>
+          <div class="fact-strip">Winnowing uses air currents to blow away light outer husks, leaving behind crisp, intensely chocolatey cocoa nibs.</div>
+          <button class="next-btn hidden" id="next2">Next: Grinding & Tempering <span>➜</span></button>
+        </section>
+
+        <!-- MISSION 4: GRINDING MATH -->
+        <section class="mission-card hidden" id="mission3">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 4 · CHOCOLATE MATH</span>
+            <h2>How many chocolate bars made?</h2>
+            <p>Every batch of cocoa nibs makes delicious chocolate bars! Count the chocolate bars on the table.</p>
+          </div>
+          <div class="animal-math">
+            <div class="animal-row">
+              <div class="animal-card"><img src="assets/food-system/chocolatebar/chocolateBar.webp" alt="Chocolate Bar"></div>
+              <div class="animal-card"><img src="assets/food-system/chocolatebar/chocolateBar.webp" alt="Chocolate Bar"></div>
+              <div class="animal-card"><img src="assets/food-system/chocolatebar/chocolateBar.webp" alt="Chocolate Bar"></div>
+              <div class="animal-card"><img src="assets/food-system/chocolatebar/chocolateBar.webp" alt="Chocolate Bar"></div>
+              <div class="animal-card"><img src="assets/food-system/chocolatebar/chocolateBar.webp" alt="Chocolate Bar"></div>
+            </div>
+            <div class="speech-bubble">How many chocolate bars are here?</div>
+            <div class="number-options" id="cowAnswers">
+              <button>3</button>
+              <button>4</button>
+              <button>5</button>
+              <button>6</button>
+            </div>
+            <p class="feedback" id="cowFeedback" aria-live="polite">Touch a number!</p>
+          </div>
+          <div class="fact-strip">Grinding cocoa nibs for days releases natural cocoa butter, turning crunchy nibs into smooth chocolate liquor!</div>
+          <button class="next-btn hidden" id="next3">Next: Chocolate Production Sequence <span>➜</span></button>
+        </section>
+
+        <!-- MISSION 5: PRODUCTION STAGES DRAG & DROP GAME -->
+        <section class="mission-card hidden" id="mission4">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 5 · CHOCOLATE SCIENCE</span>
+            <h2>Build the Chocolate Journey!</h2>
+            <p>Making chocolate takes craftsmanship and precision at every stage. Drag or tap the stage cards to organize the production steps from tree harvest to wrapped bar!</p>
+          </div>
+
+          <div class="soil-game-container">
+            <div class="soil-reference">
+              <h3>Chocolate Making Reference</h3>
+              <div class="image-wrapper">
+                <img src="assets/food-system/chocolatebar/process.webp" alt="Chocolate Making Process Diagram" id="soilHorizonsImg" onerror="this.onerror=null; this.src='assets/food-system/chocolatebar/chocolate-bar.png';">
+              </div>
+            </div>
+
+            <div class="soil-drag-area">
+              <div class="drop-slots" id="dropSlots">
+                <div class="slot" data-order="0">
+                  <span class="slot-num">1 (Step 1)</span>
+                  <div class="slot-content" id="slot-0"></div>
+                </div>
+                <div class="slot" data-order="1">
+                  <span class="slot-num">2 (Step 2)</span>
+                  <div class="slot-content" id="slot-1"></div>
+                </div>
+                <div class="slot" data-order="2">
+                  <span class="slot-num">3 (Step 3)</span>
+                  <div class="slot-content" id="slot-2"></div>
+                </div>
+                <div class="slot" data-order="3">
+                  <span class="slot-num">4 (Step 4)</span>
+                  <div class="slot-content" id="slot-3"></div>
+                </div>
+              </div>
+
+              <div class="layer-pool-title">Drag or click stage cards to place them:</div>
+              <div class="draggable-layers" id="layerPool">
+                <div class="drag-item" draggable="true" data-layer-id="topsoil">
+                  <div class="layer-img-wrap"><img src="assets/food-system/chocolatebar/harvest.png" alt="1. Pod Harvest"></div>
+                  <b>1. Harvest Pods</b>
+                </div>
+                <div class="drag-item" draggable="true" data-layer-id="subsoil">
+                  <div class="layer-img-wrap"><img src="assets/food-system/chocolatebar/fermented.webp" alt="2. Ferment & Dry"></div>
+                  <b>2. Ferment & Dry</b>
+                </div>
+                <div class="drag-item" draggable="true" data-layer-id="parent">
+                  <div class="layer-img-wrap"><img src="assets/food-system/chocolatebar/rostedBeans.png" alt="3. Roast & Grind"></div>
+                  <b>3. Roast & Grind</b>
+                </div>
+                <div class="drag-item" draggable="true" data-layer-id="bedrock">
+                  <div class="layer-img-wrap"><img src="assets/food-system/chocolatebar/wrap.png" alt="4. Temper & Wrap"></div>
+                  <b>4. Temper & Wrap</b>
+                </div>
+              </div>
+
+              <div class="soil-actions">
+                <button class="secondary-btn" id="checkSoilBtn">Check Process Order ✓</button>
+                <button class="reset-btn" id="resetSoilBtn">Reset Steps ↺</button>
+              </div>
+
+              <p class="feedback" id="soilFeedback" aria-live="polite">Drag or click a stage picture to start building the process!</p>
+            </div>
+          </div>
+
+          <div class="fact-strip">
+            <b>Tempering Magic:</b> Tempering carefully controls chocolate temperature so cocoa butter crystals align, giving bars a shiny finish and crisp snap!
+          </div>
+          <button class="next-btn hidden" id="next4">Next: Final Knowledge Quiz <span>➜</span></button>
+        </section>
+
+        <!-- MISSION 6: FINAL KNOWLEDGE QUIZ & ARCHIVE -->
+        <section class="mission-card hidden" id="mission5">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 6 · CHOCOLATIER QUIZ</span>
+            <h2>Test Your Chocolate Knowledge!</h2>
+            <p>Answer these 3 quick questions about cacao farming and chocolate making to earn your official Chocolatier Diploma!</p>
+          </div>
+
+          <div class="quiz-container" id="quizContainer">
+            <!-- Question 1 -->
+            <div class="quiz-question-box" id="qBox-0">
+              <h3>Question 1: Where do cacao beans grow before being harvested?</h3>
+              <div class="quiz-options">
+                <button data-q="0" data-correct="false">Underground like potatoes</button>
+                <button data-q="0" data-correct="true">Inside colorful pods on cacao trees</button>
+                <button data-q="0" data-correct="false">On tall pine trees in cold mountains</button>
+              </div>
+              <p class="quiz-hint" id="qHint-0"></p>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="quiz-question-box hidden" id="qBox-1">
+              <h3>Question 2: What is winnowing in the chocolate production process?</h3>
+              <div class="quiz-options">
+                <button data-q="1" data-correct="true">Separating light roasted outer husks from crunchy cocoa nibs</button>
+                <button data-q="1" data-correct="false">Melting chocolate in hot water</button>
+                <button data-q="1" data-correct="false">Freezing chocolate bars into ice cream</button>
+              </div>
+              <p class="quiz-hint" id="qHint-1"></p>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="quiz-question-box hidden" id="qBox-2">
+              <h3>Question 3: Why is tempering chocolate so important before molding into bars?</h3>
+              <div class="quiz-options">
+                <button data-q="2" data-correct="false">It turns dark chocolate into white chocolate</button>
+                <button data-q="2" data-correct="true">It aligns cocoa butter crystals for a glossy shine and clean snap</button>
+                <button data-q="2" data-correct="false">It removes all the sugar from chocolate</button>
+              </div>
+              <p class="quiz-hint" id="qHint-2"></p>
+            </div>
+          </div>
+
+          <div class="fact-strip">Great job testing your knowledge! Fair trade and sustainable farming help cacao farmers thrive around the world.</div>
+          <button class="next-btn hidden" id="finishQuizBtn">My Chocolatier!</button>
+        </section>
+
+        <!-- CELEBRATION & ARCHIVE DOWNLOAD -->
+        <section class="celebration hidden" id="celebration">
+          <h2>You did it, Junior Chocolatier!</h2>
+          <p>You completed all missions and earned your official Chocolate Maker Diploma!</p>
+          <div class="big-stars">⭐⭐⭐⭐⭐</div>
+
+          <button class="secondary-btn" id="againBtn" style="margin-top: 12px;"><a href="chocolatebar.html" style="color: #ffffff; text-decoration: none;">Play again ↻</a></button>
+        </section>
+      </section>
+    </main>
+
+    <!-- FOOTER MATCHING HIERARCHY -->
+    <footer class="footer-section" id="contact">
+      <div class="footer-bottom">
+        <p>@2026 McCullough - UNCA</p>
+      </div>
+    </footer>
+
+  </body>
+
+</html>

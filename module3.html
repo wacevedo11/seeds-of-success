@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2d4a27">
+    <title>Water Quality | Seeds of Success</title>
+    <link rel="icon" type="image/x-icon" href="assets/seeds-of-success-logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css-js-files/module3.css">
+  </head>
+
+  <body>
+    <!-- Standard Site Navigation Bar matching Module 1 -->
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <div class="logo-icon"></div>
+          <span class="logo-text">Seeds of Success</span>
+        </a>
+        <nav class="nav-links" id="navLinks">
+          <a href="index.html">HOME</a>
+          <a href="about.html">ABOUT</a>
+          <a href="gallery.html">GALLERY</a>
+          <a href="resources.html">RESOURCES</a>
+          <a href="contact.html">CONTACT</a>
+          <div class="nav-sound-tools">
+            <button class="tool-btn" id="voiceBtn" aria-pressed="true">Voice on</button>
+            <button class="tool-btn" id="musicBtn" aria-pressed="false">Audio off</button>
+          </div>
+        </nav>
+        <div class="hamburger" id="hamburger">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Welcome Screen -->
+      <section class="welcome" id="welcome">
+        <div class="welcome-copy">
+          <span class="eyebrow">STEM & Environmental Science Module</span>
+          <h1>River Water Quality & <em>Sustainable Farming</em></h1>
+          <p>Explore watershed dynamics, analyze pH and runoff metrics, treat river water, and safely irrigate local crops and livestock!</p>
+          <button class="primary-btn" id="startBtn">Start Mission <span>➜</span></button>
+        </div>
+        <div class="welcome-art">
+          <img class="welcome-river-preview" src="assets/river.webp" alt="River ecosystem preview">
+        </div>
+      </section>
+
+      <!-- Main Game Shell -->
+      <section class="game-shell hidden" id="game">
+        <div class="farm-banner">
+          <img src="assets/river.webp" id="bannerImg" alt="River Watershed Ecosystem">
+          <div class="banner-label">
+            <b>River Watershed & Ecosystem</b>
+            <small>Analyzing water parameters for sustainable agriculture.</small>
+          </div>
+        </div>
+
+        <div class="journey-head">
+          <div>
+            <h2>Water Quality Missions</h2>
+          </div>
+          <div class="star-score">
+            <span>⭐</span>
+            <b id="starCount">0</b>
+            <small>stars</small>
+          </div>
+        </div>
+
+        <!-- 6 Mission Step Navigation Tabs -->
+        <nav class="mission-nav" aria-label="Learning missions">
+          <button class="mission-tab active" data-step="0"><span class="step-num">1</span><b>Ecology</b></button>
+          <button class="mission-tab" data-step="1"><span class="step-num">2</span><b>Sampling</b></button>
+          <button class="mission-tab" data-step="2"><span class="step-num">3</span><b>Chemistry</b></button>
+          <button class="mission-tab" data-step="3"><span class="step-num">4</span><b>Filtration</b></button>
+          <button class="mission-tab" data-step="4"><span class="step-num">5</span><b>Irrigation</b></button>
+          <button class="mission-tab" data-step="5"><span class="step-num">6</span><b>STEM Quiz</b></button>
+        </nav>
+
+        <!-- MISSION 1: AQUATIC ECOLOGY & FISHING CANVAS -->
+        <section class="mission-card" id="mission0">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 1 · AQUATIC ECOLOGY</span>
+            <h2>Bio-Indicators & Aquatic Health</h2>
+            <p>Fish act as bio-indicators of watershed health. Click on the river water canvas to lower your fishing line and sample 3 healthy aquatic specimens while avoiding agricultural runoff trash!</p>
+          </div>
+
+          <div class="canvas-wrapper">
+            <div class="game-status-bar">
+              <span>Caught: <b id="fish-count">0</b> / 3</span>
+              <span>Time: <b id="timer-val">30</b>s</span>
+              <span>Lives: <span id="lives-val">❤️❤️❤️</span></span>
+            </div>
+            <canvas id="gameCanvas"></canvas>
+          </div>
+
+          <div class="fact-strip">
+            <b>STEM Concept:</b> Bio-indicator species (like fish and macroinvertebrates) reflect environmental quality and reveal silent toxic buildup in freshwater ecosystems.
+          </div>
+          <button class="next-btn hidden" id="next0">Next: Water Sampling <span>➜</span></button>
+        </section>
+
+        <!-- MISSION 2: RIVER WATER SAMPLING & VISUAL ANALYSIS -->
+        <section class="mission-card hidden" id="mission1">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 2 · FIELD SAMPLING</span>
+            <h2>River Field Sampling</h2>
+            <p>Click on the 3 glowing thermal ripples along the riverbed to take samples. You can toggle between different river ecosystem vantage points!</p>
+          </div>
+
+          <div class="river-sampling-area">
+            <div class="sampling-controls">
+              <span>Samples Collected: <b id="sample-count">0</b> / 3</span>
+              <button id="toggle-river-bg" class="secondary-btn">Switch River View (river.webp / river2.jpg)</button>
+            </div>
+            <div id="river-container" class="full-viewport-container">
+              <img src="assets/river.webp" alt="River Water Sampling Site" id="river-background">
+            </div>
+          </div>
+
+          <div class="fact-strip">
+            <b>STEM Concept:</b> Water sampling at depth layers and flow speeds is essential to accurately dissolved oxygen, sediment loading, and chemical runoff.
+          </div>
+          <button class="next-btn hidden" id="next1">Next: Chemical Analysis <span>➜</span></button>
+        </section>
+
+        <!-- MISSION 3: WATER CHEMISTRY LAB (pH & NITRATES) -->
+        <section class="mission-card hidden" id="mission2">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 3 · WATER CHEMISTRY</span>
+            <h2>Water Chemistry Analysis</h2>
+            <p>Evaluate your collected water sample against agricultural chemical safety standards before approving it for crop usage.</p>
+          </div>
+
+          <div class="chem-lab-panel">
+            <div class="chem-card">
+              <h3>pH Level: <span id="phDisplay">5.5</span></h3>
+              <input type="range" id="phInput" min="4.0" max="10.0" step="0.1" value="5.5">
+              <p>Target: <strong>6.5 - 7.5 pH</strong> (Neutral)</p>
+            </div>
+            <div class="chem-card">
+              <h3>Nitrates (NO3-): <span id="nitrateDisplay">45</span> mg/L</h3>
+              <input type="range" id="nitrateInput" min="0" max="100" value="45">
+              <p>Target: <strong>&lt; 10 mg/L</strong> (Safe EPA limit)</p>
+            </div>
+          </div>
+
+          <div id="chemStatusBox" class="status-box polluted">
+            <b>Status:</b> High Nitrates & Low pH detected! Excess fertilizer runoff can cause harmful blooms and crop root stress.
+          </div>
+
+          <div class="fact-strip">
+            <b>STEM Concept:</b> High nitrate levels (NO3-) trigger eutrophication, reducing dissolved oxygen in natural waterways and making water toxic to crops and livestock.
+          </div>
+          <button class="next-btn hidden" id="next2">Next: Water Filtration <span>➜</span></button>
+        </section>
+
+        <!-- MISSION 4: MULTI-STAGE WATER FILTRATION -->
+        <section class="mission-card hidden" id="mission3">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 4 · ENVIRONMENTAL ENGINEERING</span>
+            <h2>Multi-Stage Filtration & Neutralization</h2>
+            <p>Engineer a clean supply of agricultural water by adjusting the lime neutralizer dose and sand/carbon filter density.</p>
+          </div>
+
+          <div class="filter-controls-grid">
+            <div class="slider-group">
+              <label for="phSlider">Agricultural Lime Treatment (Neutralize pH): <span id="ph-val">5.2</span> pH</label>
+              <input type="range" id="phSlider" min="4.5" max="9.5" step="0.1" value="5.2">
+            </div>
+            <div class="slider-group">
+              <label for="filterSlider">Sand & Bio-Char Clarification: <span id="filter-val">30</span>%</label>
+              <input type="range" id="filterSlider" min="0" max="100" value="30">
+            </div>
+          </div>
+
+          <div id="water-preview-box" class="water-preview polluted">
+            <span id="preview-status">Status: Untreated Runoff ⚠️ (Target pH ~7.0, Filter Clarification &ge; 85%)</span>
+          </div>
+
+          <div class="fact-strip">
+            <b>STEM Concept:</b> Bio-char and sand filtration physical separation removes suspended solids, while chemical dosing neutralizes pH imbalances for safe farm use.
+          </div>
+          <button class="next-btn hidden" id="next3">Next: Farm Irrigation <span>➜</span></button>
+        </section>
+
+        <!-- MISSION 5: SUSTAINABLE FARM IRRIGATION DRAG & DROP -->
+        <section class="mission-card hidden" id="mission4">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 5 · SUSTAINABLE AGRICULTURE</span>
+            <h2>Safe Farm Irrigation</h2>
+            <p>Now that the river water is purified, drag or click the Clean Water Bucket onto all farm sectors (Crops and Livestock) to safely irrigate them.</p>
+          </div>
+
+          <div class="farm-arena">
+            <div class="farm-grid">
+              <div class="farm-zone" data-target="corn">
+                <span class="zone-icon">🌽</span>
+                <h3>Corn Crops</h3>
+                <p class="status-text">Wilting / High Salt Risk</p>
+              </div>
+              <div class="farm-zone" data-target="tomato">
+                <span class="zone-icon">🍅</span>
+                <h3>Hydroponic Tomatoes</h3>
+                <p class="status-text">Nutrient Imbalance</p>
+              </div>
+              <div class="farm-zone" data-target="lettuce">
+                <span class="zone-icon">🥬</span>
+                <h3>Lettuce Fields</h3>
+                <p class="status-text">Dry / Unsafe Runoff</p>
+              </div>
+              <div class="farm-zone" data-target="cattle">
+                <span class="zone-icon">🐄</span>
+                <h3>Livestock Pasture</h3>
+                <p class="status-text">Thirsty / Untreated Water</p>
+              </div>
+            </div>
+            <div id="water-bucket" draggable="true">Purified Water Bucket</div>
+          </div>
+
+          <div class="fact-strip">
+            <b>STEM Concept:</b> Drip irrigation with high-quality water minimizes soil salinization and ensures clean crop yield and healthy livestock.
+          </div>
+          <button class="next-btn hidden" id="next4">Next: Knowledge Quiz <span>➜</span></button>
+        </section>
+
+        <!-- MISSION 6: HIGH SCHOOL STEM QUIZ -->
+        <section class="mission-card hidden" id="mission5">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 6 · HIGH SCHOOL STEM ASSESSMENT</span>
+            <h2>Water Quality & Agriculture Quiz</h2>
+            <p>Answer these 3 technical questions!</p>
+          </div>
+
+          <div class="quiz-container" id="quizContainer">
+            <!-- Question 1 -->
+            <div class="quiz-question-box" id="qBox-0">
+              <h3>Question 1: What ecological process occurs when excess nitrogen fertilizer runoff enters a river?</h3>
+              <div class="quiz-options">
+                <button data-q="0" data-correct="false">Photosynthetic Desalination</button>
+                <button data-q="0" data-correct="true">Eutrophication leading to oxygen depletion</button>
+                <button data-q="0" data-correct="false">Sediment Neutralization</button>
+              </div>
+              <p class="quiz-hint" id="qHint-0"></p>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="quiz-question-box hidden" id="qBox-1">
+              <h3>Question 2: What is the optimal pH range for irrigation water for most agricultural crops?</h3>
+              <div class="quiz-options">
+                <button data-q="1" data-correct="true">6.5 to 7.5 (Slightly Acidic to Neutral)</button>
+                <button data-q="1" data-correct="false">3.0 to 4.5 (Highly Acidic)</button>
+                <button data-q="1" data-correct="false">9.5 to 11.0 (Highly Alkaline)</button>
+              </div>
+              <p class="quiz-hint" id="qHint-1"></p>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="quiz-question-box hidden" id="qBox-2">
+              <h3>Question 3: Why are aquatic fish species referred to as "bio-indicators" in watershed studies?</h3>
+              <div class="quiz-options">
+                <button data-q="2" data-correct="false">They filter nitrogen gas directly out of the atmosphere</button>
+                <button data-q="2" data-correct="true">Their health and population reflect overall chemical and physical water quality</button>
+                <button data-q="2" data-correct="false">They prevent soil erosion along riverbanks</button>
+              </div>
+              <p class="quiz-hint" id="qHint-2"></p>
+            </div>
+          </div>
+
+          <div class="fact-strip">
+            Water quality monitoring protects aquatic life and secures our local food supply chain.
+          </div>
+          <button class="next-btn hidden" id="finishQuizBtn">Claim Archive!</button>
+        </section>
+
+        <!-- Celebration Section -->
+        <section class="celebration hidden" id="celebration">
+          <h2>Congratulations, Eco-Water Specialist!</h2>
+          <p>You have mastered river ecosystem dynamics, water chemistry lab testing and sustainable irrigation!</p>
+          <div class="big-stars">⭐⭐⭐⭐⭐</div>
+
+          <button class="secondary-btn" id="againBtn" style="margin-top: 24px;">Play Again ↻</button>
+        </section>
+      </section>
+    </main>
+
+    <!-- Standard Site Footer matching Module 1 -->
+    <footer class="footer-section" id="contact">
+      <div class="footer-bottom">
+        <p>@2026 McCullough - UNCA</p>
+      </div>
+    </footer>
+
+    <!-- Script tag with matching relative path -->
+    <script src="css-js-files/module3.js" defer></script>
+  </body>
+
+</html>

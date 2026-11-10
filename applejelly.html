@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2f7138">
+    <title>Apple Jelly Sustainable Agriculture Adventure | Seeds of Success</title>
+    <link rel="icon" type="image/x-icon" href="assets/seeds-of-success-logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css-js-files/applejelly.css">
+    <script src="css-js-files/applejelly.js" defer></script>
+  </head>
+
+  <body>
+    <!-- NAVBAR MATCHING FOOD MODULES HIERARCHY -->
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <div class="logo-icon"></div>
+          <span class="logo-text">Seeds of Success</span>
+        </a>
+        <nav class="nav-links" id="navLinks">
+          <a href="index.html">HOME</a>
+          <a href="about.html">ABOUT</a>
+          <a href="gallery.html">GALLERY</a>
+          <a href="resources.html">RESOURCES</a>
+          <a href="contact.html">CONTACT</a>
+          <div class="nav-sound-tools">
+            <button class="tool-btn" id="voiceBtn" aria-pressed="true">Voice on</button>
+            <button class="tool-btn" id="musicBtn" aria-pressed="false">Sound off</button>
+          </div>
+        </nav>
+        <div class="hamburger" id="hamburger">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- VIBRANT HERO SECTION -->
+      <section class="welcome" id="welcome">
+        <div class="welcome-copy">
+          <span class="eyebrow">WNC Food Systems Adventure</span>
+          <h1>From WNC Orchards<br>to <em>Apple Jelly!</em></h1>
+          <p>Embark on a hands-on journey through Western NC! Master soil prep, bee pollination, fruit thinning, and cold storage across 4 counties to gather your ingredients and cook real apple jelly!</p>
+          <button class="primary-btn pulse-glow" id="startBtn">Launch Map Quest! <span class="btn-arrow">➜</span></button>
+        </div>
+        <div class="welcome-art">
+          <div class="hero-map-card">
+            <img class="welcome-map-preview" src="assets/food-system/applejelly/wnc-map-clean.png" alt="WNC County Map Preview">
+          </div>
+        </div>
+      </section>
+
+      <!-- MAIN GAME SHELL -->
+      <section class="game-shell hidden" id="game">
+        <div class="farm-banner">
+          <img src="assets/food-system/applejelly/wnc-map-clean.png" alt="WNC Sustainable Agriculture Map" id="bannerMapBg">
+          <div class="banner-overlay"></div>
+          <div class="banner-label">
+            <b>📍 WNC Sustainable Orchard Tour</b>
+            <small id="currentStageSubtitle">Click an active county on your map to start exploring!</small>
+          </div>
+        </div>
+
+        <div class="journey-head">
+          <div>
+            <h2 id="journeyHeaderTitle">Western NC Farm Exploration</h2>
+          </div>
+          <div class="head-badges">
+            <div class="star-score">
+              <span class="star-anim">⭐</span>
+              <b id="starCount">0</b>
+              <small>STARS</small>
+            </div>
+            <div class="jelly-inventory">
+              <img src="assets/food-system/applejelly/apple-jelly-jar.png" alt="Jelly Jars Collected" class="mini-jar-icon" onerror="this.style.display='none'">
+              <span id="jarCount">0</span>/4
+              <small>JARS</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- COUNTY NAVIGATION TABS -->
+        <nav class="mission-nav" aria-label="County Steps">
+          <button class="mission-tab active" data-county="map"><span class="step-num"></span><b>Map View</b></button>
+          <button class="mission-tab" data-county="haywood" id="tab-haywood"><span class="step-num">1</span><b>Haywood</b></button>
+          <button class="mission-tab" data-county="buncombe" id="tab-buncombe" disabled><span class="step-num">2</span><b>Buncombe</b></button>
+          <button class="mission-tab" data-county="mcdowell" id="tab-mcdowell" disabled><span class="step-num">3</span><b>McDowell</b></button>
+          <button class="mission-tab" data-county="henderson" id="tab-henderson" disabled><span class="step-num">4</span><b>Henderson</b></button>
+        </nav>
+
+        <!-- STEP 0: INTERACTIVE MAP HUB -->
+        <section class="mission-card" id="mapSection">
+          <div class="mission-intro">
+            <span class="step-pill">EXPLORE THE REGION</span>
+            <h2>Interactive Western NC County Map</h2>
+            <p>Click on the pulse-glowing county pins to start learning sustainable orchard practices and claim your jars!</p>
+          </div>
+
+          <div class="map-interactive-container">
+            <div class="map-wrapper">
+              <img src="assets/food-system/applejelly/wnc-map-clean.png" alt="Clean WNC Map" class="wnc-map-img">
+
+              <button class="map-pin pin-active" id="pinHaywood" style="top: 48%; left: 32%;" data-target="haywood">
+                <span class="pin-pulse"></span>
+                <span class="pin-icon"></span> 1. Haywood
+              </button>
+
+              <button class="map-pin pin-locked" id="pinBuncombe" style="top: 42%; left: 47%;" data-target="buncombe">
+                <span class="pin-pulse"></span>
+                <span class="pin-icon">🔒</span> 2. Buncombe
+              </button>
+
+              <button class="map-pin pin-locked" id="pinMcdowell" style="top: 38%; left: 65%;" data-target="mcdowell">
+                <span class="pin-pulse"></span>
+                <span class="pin-icon">🔒</span> 3. McDowell
+              </button>
+
+              <button class="map-pin pin-locked" id="pinHenderson" style="top: 60%; left: 45%;" data-target="henderson">
+                <span class="pin-pulse"></span>
+                <span class="pin-icon">🔒</span> 4. Henderson
+              </button>
+            </div>
+          </div>
+          <div class="fact-strip"><b>STEM Quick Fact:</b> WNC’s mountain microclimates provide perfect chilling hours required for crisp, high-pectin apples!</div>
+        </section>
+
+        <!-- STEP 1: HAYWOOD COUNTY -->
+        <section class="mission-card hidden" id="county-haywood">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 1 · HAYWOOD COUNTY</span>
+            <h2>Apple Growth, Soil Prep & Pruning</h2>
+            <p>Master how trees grow, then jump into the interactive pruning and soil enrichment game below!</p>
+          </div>
+
+          <div class="lesson-grid">
+            <div class="lesson-card">
+              <div class="asset-frame hover-zoom">
+                <img src="assets/food-system/applejelly/apple-growth.png" alt="How Apples Grow" onerror="this.src='assets/food-system/applejelly/apple-grafting.jpg'">
+              </div>
+              <h3>1. Apple Grafting & Trunk Growth</h3>
+              <p>Apple cultivars grow from grafting desirable shoots onto hardy rootstocks, forming strong trunks to support heavy crops.</p>
+            </div>
+
+            <div class="lesson-card">
+              <div class="asset-frame hover-zoom">
+                <img src="assets/food-system/applejelly/soil-prep-pruning.png" alt="Soil Prep and Pruning" onerror="this.src='../assets/food-system/applejelly/winter-prunning.avif'">
+              </div>
+              <h3>2. Winter Pruning & Organic Compost</h3>
+              <p>Trimming dead branches lets sunlight penetrate the canopy, while organic compost feeds beneficial soil microbes.</p>
+            </div>
+          </div>
+
+          <!-- HAYWOOD INTERACTIVE GAME -->
+          <div class="activity-box">
+            <div class="act-header">
+              <h3>Interactive Pruning & Soil Prep Challenge</h3>
+              <span class="act-badge">Tap targets to complete!</span>
+            </div>
+            <p>Click the 2 overgrown branches to prune the tree, then tap the soil zone to add compost!</p>
+            <div class="prune-stage" id="pruneStage">
+              <button class="prune-target branch" id="branch1" style="top: 22%; left: 22%;">Snipped Overgrown Branch</button>
+              <button class="prune-target branch" id="branch2" style="top: 18%; right: 22%;">Snipped Overgrown Branch</button>
+              <button class="prune-target soil-spot" id="soilSpot" style="bottom: 12%; left: 40%;">Spread Organic Compost</button>
+            </div>
+            <p class="feedback" id="haywoodActFeedback">3 orchard care tasks remaining!</p>
+          </div>
+
+          <!-- HAYWOOD QUIZ -->
+          <div class="quiz-question-box hidden" id="haywoodQuiz">
+            <span class="quiz-pill">STEM KNOWLEDGE CHECK</span>
+            <h3>Why do fruit growers prune apple trees during winter dormancy?</h3>
+            <div class="quiz-options" id="haywoodOptions">
+              <button data-correct="true"><span>A</span> To increase sunlight exposure and air flow through the canopy</button>
+              <button data-correct="false"><span>B</span> To stop the tree from ever growing leaves again</button>
+              <button data-correct="false"><span>C</span> To force apples to sprout under the dirt</button>
+            </div>
+            <p class="feedback" id="haywoodQuizFeedback"></p>
+          </div>
+
+          <!-- CLAIM JAR 1 -->
+          <div class="claim-jar-card hidden" id="claimJar1">
+            <div class="jar-shine-wrap">
+              <img src="assets/food-system/applejelly/jar-color.png" alt="Apple Jelly Jar 1" class="claim-jar-img" onerror="this.src='assets/seeds-of-success-logo.svg'">
+            </div>
+            <h3>Haywood County Mission Accomplished!</h3>
+            <p>You earned your 1st Jar of Apple Jelly!</p>
+            <button class="primary-btn claim-btn pulse-glow" id="btnClaim1">Claim Haywood Jar & Return to Map!</button>
+          </div>
+        </section>
+
+        <!-- STEP 2: BUNCOMBE COUNTY -->
+        <section class="mission-card hidden" id="county-buncombe">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 2 · BUNCOMBE COUNTY</span>
+            <h2>Pollination & Nitrogen Cover Crops</h2>
+            <p>Discover how bees power cross-pollination and clover enriches the soil naturally!</p>
+          </div>
+
+          <div class="lesson-grid">
+            <div class="lesson-card">
+              <div class="asset-frame hover-zoom">
+                <img src="assets/food-system/applejelly/pollination.png" alt="Bee Pollination" onerror="this.src='assets/food-system/applejelly/bee-pollination.jpg'">
+              </div>
+              <h3>1. Bee Cross-Pollination</h3>
+              <p>Insects transport pollen between varieties. Cross-pollination is required for blossoms to set fruit and seeds.</p>
+            </div>
+
+            <div class="lesson-card">
+              <div class="asset-frame hover-zoom">
+                <img src="assets/food-system/applejelly/nitrogen-boost.png" alt="Nitrogen Boost Cover Crops" onerror="this.src='assets/food-system/applejelly/nitrogen.webp'">
+              </div>
+              <h3>2. Natural Nitrogen Fixation</h3>
+              <p>Planting clover cover crops fixes atmospheric nitrogen in root nodules, eliminating the need for synthetic chemicals.</p>
+            </div>
+          </div>
+
+          <!-- BUNCOMBE MATCHING GAME -->
+          <div class="activity-box">
+            <div class="act-header">
+              <h3>Sustainable Eco-Match Challenge</h3>
+              <span class="act-badge">Match related pairs!</span>
+            </div>
+            <p>Click two matching cards to pair sustainable ecosystem concepts!</p>
+            <div class="matching-container" id="buncombeMatch">
+              <button class="match-card" data-pair="bee">Honeybee Pollinator</button>
+              <button class="match-card" data-pair="clover">Clover Cover Crop</button>
+              <button class="match-card" data-pair="bee">Apple Blossom Set</button>
+              <button class="match-card" data-pair="clover">Organic Soil Nitrogen</button>
+            </div>
+            <p class="feedback" id="buncombeActFeedback">Select a card to pair!</p>
+          </div>
+
+          <!-- BUNCOMBE QUIZ -->
+          <div class="quiz-question-box hidden" id="buncombeQuiz">
+            <span class="quiz-pill">STEM KNOWLEDGE CHECK</span>
+            <h3>How do clover cover crops enrich orchard soil naturally?</h3>
+            <div class="quiz-options" id="buncombeQ1Opts">
+              <button data-correct="true"><span>A</span> They convert air nitrogen into organic soil plant food</button>
+              <button data-correct="false"><span>B</span> They block rainwater from touching tree roots</button>
+            </div>
+
+            <div class="hidden" id="buncombeQ2Box" style="margin-top: 20px;">
+              <h3>Why are wild bees critical for apple harvest yields?</h3>
+              <div class="quiz-options" id="buncombeQ2Opts">
+                <button data-correct="true"><span>A</span> They move pollen across flowers so blossoms form fruit</button>
+                <button data-correct="false"><span>B</span> They paint the apples red with honey</button>
+              </div>
+            </div>
+            <p class="feedback" id="buncombeQuizFeedback"></p>
+          </div>
+
+          <!-- CLAIM JAR 2 -->
+          <div class="claim-jar-card hidden" id="claimJar2">
+            <div class="jar-shine-wrap">
+              <img src="assets/food-system/applejelly/jar-color.png" alt="Apple Jelly Jar 2" class="claim-jar-img" onerror="this.src='assets/seeds-of-success-logo.svg'">
+            </div>
+            <h3>Buncombe County Mission Complete!</h3>
+            <p>You earned your 2nd Jar of Apple Jelly!</p>
+            <button class="primary-btn claim-btn pulse-glow" id="btnClaim2">Claim Buncombe Jar & Return to Map!</button>
+          </div>
+        </section>
+
+        <!-- STEP 3: MCDOWELL COUNTY -->
+        <section class="mission-card hidden" id="county-mcdowell">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 3 · MCDOWELL COUNTY</span>
+            <h2>Fruit Thinning & Solar Ripening</h2>
+            <p>Learn why culling overcrowded fruit lets remaining apples grow huge, sweet, and crisp!</p>
+          </div>
+
+          <div class="lesson-grid">
+            <div class="lesson-card">
+              <div class="asset-frame hover-zoom">
+                <img src="assets/food-system/applejelly/fruit-thinning.png" alt="Fruit Thinning" onerror="this.src='assets/food-system/applejelly/thinning.jpg'">
+              </div>
+              <h3>1. Early Fruit Thinning</h3>
+              <p>Removing excess small fruit prevents branch breakage and concentrates sugars into remaining prime apples.</p>
+            </div>
+
+            <div class="lesson-card">
+              <div class="asset-frame hover-zoom">
+                <img src="assets/food-system/applejelly/sun-ripening.png" alt="Sun Ripening Science" onerror="this.src='assets/food-system/applejelly/photosynthesis.webp'">
+              </div>
+              <h3>2. Photosynthesis & Pigments</h3>
+              <p>Direct sunlight sparks anthocyanin pigments in skins, turning apples deep red while boosting natural fructose levels.</p>
+            </div>
+          </div>
+
+          <!-- MCDOWELL THINNING GAME -->
+          <div class="activity-box">
+            <div class="act-header">
+              <h3>Fruit Thinning Simulator</h3>
+              <span class="act-badge">Tap small apples to remove!</span>
+            </div>
+            <p>Click the 2 small green apples to leave 1 king apple for optimal sun ripening!</p>
+            <div class="thinning-cluster" id="thinningCluster">
+              <button class="thin-apple target-remove" id="thin1">Small Apple (Remove)</button>
+              <button class="thin-apple target-keep" id="thinKeep">Prime King Apple (Keep)</button>
+              <button class="thin-apple target-remove" id="thin2">Small Apple (Remove)</button>
+            </div>
+            <p class="feedback" id="mcdowellActFeedback">Remove 2 crowded apples!</p>
+          </div>
+
+          <!-- MCDOWELL QUIZ -->
+          <div class="quiz-question-box hidden" id="mcdowellQuiz">
+            <span class="quiz-pill">STEM KNOWLEDGE CHECK</span>
+            <h3>What is the main agricultural benefit of thinning apple clusters in early summer?</h3>
+            <div class="quiz-options" id="mcdowellOptions">
+              <button data-correct="true"><span>A</span> It focuses water and sugar into larger, sweeter, healthier fruit</button>
+              <button data-correct="false"><span>B</span> It changes apple branches into melon vines</button>
+            </div>
+            <p class="feedback" id="mcdowellQuizFeedback"></p>
+          </div>
+
+          <!-- CLAIM JAR 3 -->
+          <div class="claim-jar-card hidden" id="claimJar3">
+            <div class="jar-shine-wrap">
+              <img src="assets/food-system/applejelly/jar-color.png" alt="Apple Jelly Jar 3" class="claim-jar-img" onerror="this.src='assets/seeds-of-success-logo.svg'">
+            </div>
+            <h3>McDowell County Mission Complete!</h3>
+            <p>You earned your 3rd Jar of Apple Jelly!</p>
+            <button class="primary-btn claim-btn pulse-glow" id="btnClaim3">Claim McDowell Jar & Return to Map!</button>
+          </div>
+        </section>
+
+        <!-- STEP 4: HENDERSON COUNTY -->
+        <section class="mission-card hidden" id="county-henderson">
+          <div class="mission-intro">
+            <span class="step-pill">MISSION 4 · HENDERSON COUNTY</span>
+            <h2>Harvest Science & Cold Storage</h2>
+            <p>Explore peak harvesting methods and cold temperature control in NC’s top apple county!</p>
+          </div>
+
+          <div class="lesson-grid">
+            <div class="lesson-card">
+              <div class="asset-frame hover-zoom">
+                <img src="assets/food-system/applejelly/harvesting.png" alt="Apple Harvest" onerror="this.src='assets/food-system/applejelly/appleHarvest.webp'">
+              </div>
+              <h3>1. Upward Roll Harvest</h3>
+              <p>Rolling apples upward releases the stem cleanly without tearing fruit spurs needed for next year's crop buds.</p>
+            </div>
+
+            <div class="lesson-card">
+              <div class="asset-frame hover-zoom">
+                <img src="assets/food-system/applejelly/cold-storage.png" alt="Cold Storage Preservation" onerror="this.src='assets/food-system/applejelly/coldStorage.webp'">
+              </div>
+              <h3>2. Controlled Cold Storage</h3>
+              <p>Chilling harvested fruit slows down respiration, locking in natural pectin required for firm, clear jelly setting.</p>
+            </div>
+          </div>
+
+          <!-- HENDERSON BRIX SORTING GAME -->
+          <div class="activity-box">
+            <div class="act-header">
+              <h3>Brix Sugar Test & Harvest Sorting</h3>
+              <span class="act-badge">Select 12°+ Brix apples!</span>
+            </div>
+            <p>Click the 2 ripe apples with sugar levels above 12° Brix ideal for cooking jelly!</p>
+            <div class="harvest-sorting" id="harvestSort">
+              <button class="sort-apple" data-brix="9">9° Brix (Too Tart)</button>
+              <button class="sort-apple" data-brix="14">14° Brix (Peak Fructose)</button>
+              <button class="sort-apple" data-brix="13">13° Brix (Ideal Pectin)</button>
+            </div>
+            <p class="feedback" id="hendersonActFeedback">Select 2 high-sugar apples!</p>
+          </div>
+
+          <!-- HENDERSON QUIZ -->
+          <div class="quiz-question-box hidden" id="hendersonQuiz">
+            <span class="quiz-pill">STEM KNOWLEDGE CHECK</span>
+            <h3>Why is post-harvest cold storage essential before jelly production?</h3>
+            <div class="quiz-options" id="hendersonOptions">
+              <button data-correct="true"><span>A</span> It slows respiration to preserve fruit sugars and natural pectin</button>
+              <button data-correct="false"><span>B</span> It instantly freezes apples into solid ice cream</button>
+            </div>
+            <p class="feedback" id="hendersonQuizFeedback"></p>
+          </div>
+
+          <!-- CLAIM JAR 4 -->
+          <div class="claim-jar-card hidden" id="claimJar4">
+            <div class="jar-shine-wrap">
+              <img src="assets/food-system/applejelly/jar-color.png" alt="Apple Jelly Jar 4" class="claim-jar-img" onerror="this.src='assets/seeds-of-success-logo.svg'">
+            </div>
+            <p>You completed all regional orchard missions!</p>
+            <button class="primary-btn claim-btn pulse-glow" id="btnClaim4">Finish & Complete Quest!</button>
+          </div>
+
+          <!-- CELEBRATION & ARCHIVE DOWNLOAD -->
+          <section class="celebration hidden" id="celebration">
+            <h2>Congratulations!</h2>
+            <p>You completed the entire Western NC Apple Jelly Sustainable Agriculture journey across all 4 counties!</p>
+            <p>You mastered Haywood, Buncombe, McDowell, and Henderson sustainable farming modules and collected all 4 Jelly Jars!</p>
+            <div class="big-stars">⭐⭐⭐⭐⭐</div>
+            <button class="primary-btn pulse-glow" id="againBtn" style="margin-top: 24px;">Restart Map Journey ↺</button>
+
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <!-- FOOTER MATCHING HIERARCHY -->
+    <footer class="footer-section" id="contact">
+      <div class="footer-bottom">
+        <p>@2026 McCullough - UNCA</p>
+      </div>
+    </footer>
+
+  </body>
+
+</html>

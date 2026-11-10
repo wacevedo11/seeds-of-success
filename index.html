@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seeds of Success | Sustainable Agriculture Hub</title>
+    <link rel="icon" type="image/x-icon" href="assets/seeds-of-success-logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- FLOATING DECORATIVE LEAVES FOR ANIMATION -->
+    <div class="floating-leaf leaf-1"><i class="fa-solid fa-leaf"></i></div>
+    <div class="floating-leaf leaf-2"><i class="fa-solid fa-seedling"></i></div>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="#" class="logo">
+          <div class="logo-icon"></div>
+          <span class="logo-text">Seeds of Success</span>
+        </a>
+        <nav class="nav-links" id="navLinks">
+          <a href="#home" class="active">HOME</a>
+          <a href="about.html">ABOUT</a>
+          <a href="gallery.html">GALLERY</a>
+          <a href="resources.html">RESOURCES</a>
+          <a href="contact.html">CONTACT</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+      <div class="hero-overlay"></div>
+      <div class="hero-content fade-in">
+        <h1>Seeds of Success</h1>
+        <p>
+          A digital hub designed to host and preserve interactive multimedia content from the Science on The Move (SoTM) initiative. Bridging field experiences and educational advocacy with powerful web experiences.
+        </p>
+        <div class="hero-buttons">
+          <a href="#modules" class="btn btn-primary"> Explore Interactive Modules</a>
+          <a href="about.html" class="btn btn-secondary"> Our Story (SoTM)</a>
+        </div>
+      </div>
+
+      <!-- Organic Wave Divider -->
+      <div class="custom-shape-divider-bottom">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,121.3,200,115.8,241.67,112.5,283.33,88.33,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE MODULES SECTION -->
+    <section class="modules-section" id="modules">
+      <div class="section-header fade-in">
+        <span class="sub-heading"> Interactive Learning Modules</span>
+        <h2 class="section-title">Science & Farm Learning Lab</h2>
+        <p class="section-desc">Explore our interactive modules to discover how soil, food systems, and clean water interact in sustainable farming. Also, explore agriculture, science, and real-world farm decisions.</p>
+      </div>
+
+      <div class="cards-container">
+
+        <!-- Card 1: Soil Health -->
+        <div class="card card-soil fade-in">
+          <div class="card-badge">Kindergarten</div>
+          <div class="card-icon">
+            <img src="assets/soil-icon.png" alt="soil-health-icon" width="60" height="60">
+          </div>
+          <h3>Soil Health</h3>
+          <p>This Soil Health Farm Adventure introduces the foundations of sustainable agriculture through six missions. Little farmers practice counting, learn how earthworms enrich the ground, and learn about plant growth stages.</p>
+          <a href="module1.html" class="btn btn-pill"><i class="fa-solid fa-play"></i> Interactive</a>
+        </div>
+
+        <!-- Card 2: Food System -->
+        <div class="card card-food fade-in">
+          <div class="card-badge">Middle School</div>
+          <div class="card-icon">
+            <img src="assets/food-icon.png" alt="farm-food-icon" width="60" height="60">
+          </div>
+          <h3>Food System</h3>
+          <p>Dive into journeys that trace how food gets from the ground to your local market and plate. Discover the journey behind local agriculture and the fascinating production process of everyday favorites like chocolate!</p>
+          <a href="foodmodules.html" class="btn btn-pill"><i class="fa-solid fa-play"></i> Interactive</a>
+        </div>
+
+        <!-- Card 3: Water Quality -->
+        <div class="card card-water fade-in">
+          <div class="card-badge">High School</div>
+          <div class="card-icon">
+            <img src="assets/water-icon.png" alt="water-quality-icon" width="60" height="60">
+          </div>
+          <h3>Water Quality</h3>
+          <p>Dive, understand, and protect river watershed science! Catch bio-indicator fish, analyze water chemistry and power sustainable farm irrigation.</p>
+          <a href="module3.html" class="btn btn-pill"><i class="fa-solid fa-play"></i> Interactive</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VR INTERACTIVE EXPERIENCE SECTION -->
+    <section class="vr-section" id="vr-experience">
+      <div class="vr-container fade-in">
+        <div class="vr-content">
+          <span class="sub-heading" style="color: var(--wheat-gold);">Spatial Computing & Virtual Reality (VR)</span>
+          <h2 class="vr-title">Immersive Virtual Experience</h2>
+          <p class="vr-description">
+            Step directly into an interactive 3D virtual environment designed to bring sustainable agriculture and farm ecosystems to life.
+          </p>
+          <div class="vr-actions">
+            <a href="about.html" class="btn btn-secondary"><i class="fa-solid fa-circle-info"></i> Learn More</a>
+          </div>
+        </div>
+        <div class="vr-visual">
+          <h3>Virtual Reality Video</h3>
+          <video controls>
+            <source src="assets/vr-environment.MOV" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHIVE & COMMUNITY PORTAL -->
+    <section class="archive-section" id="gallery">
+      <div class="section-header fade-in">
+        <span class="sub-heading"> Memories</span>
+        <h2 class="section-title">SoTM Archive & Community Portal</h2>
+      </div>
+
+      <div class="archive-grid fade-in">
+        <div class="grid-item item-large">
+          <img src="assets/photo21.jpg" alt="Student activity">
+          <div class="item-overlay"></div>
+        </div>
+        <div class="grid-item item-wide">
+          <img src="assets/photo24.jpg" alt="Student activity">
+          <div class="item-overlay"></div>
+        </div>
+        <div class="grid-item">
+          <img src="assets/photo25.jpg" alt="Student activity">
+          <div class="item-overlay"></div>
+        </div>
+        <div class="grid-item">
+          <img src="assets/photo8.jpg" alt="Student activity">
+          <div class="item-overlay"></div>
+        </div>
+        <div class="grid-item">
+          <img src="assets/sotm-bg.jpg" alt="Student activity">
+          <div class="item-overlay"></div>
+        </div>
+        <div class="grid-item">
+          <img src="assets/fishing.JPG" alt="Student activity">
+          <div class="item-overlay"></div>
+        </div>
+        <div class="grid-item">
+          <img src="assets/tractor.JPG" alt="Student activity">
+          <div class="item-overlay"></div>
+        </div>
+      </div>
+
+      <div class="archive-btn-wrap fade-in">
+        <a href="gallery.html" class="btn btn-terracotta"><i class="fa-solid fa-images"></i> View Full Gallery</a>
+      </div>
+    </section>
+
+    <!-- BANNER SECTION -->
+    <section class="banner-section">
+      <div class="banner-overlay"></div>
+      <div class="banner-content fade-in">
+        <span class="banner-tag"> OUR MISSION</span>
+        <h2>NO FARMERS,<br>NO FOOD,<br>NO FUTURE</h2>
+        <p class="banner-subtext">Supporting local growers, sustainable land, and agricultural advocacy.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT / FOOTER SECTION -->
+    <footer class="footer-section" id="contact">
+      <div class="footer-content fade-in">
+        <div class="footer-badge"> Stay Connected</div>
+        <h3>Interested in learning more?</h3>
+        <p>We'd love to hear from you and collaborate on sustainable educational resources.</p>
+        <a href="contact.html" class="btn btn-terracotta btn-lg"><i class="fa-solid fa-paper-plane"></i> Contact us!</a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>@2026 McCullough - UNCA &bull; <i>Dedicated to Sustainable Agriculture & Educational Advocacy</i></p>
+      </div>
+    </footer>
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY & ANIMATIONS -->
+    <script>
+      // Mobile navigation toggle
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+
+      // Scroll Animation Observer
+      const observerOptions = {
+        threshold: 0.12
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-in').forEach(element => {
+        observer.observe(element);
+      });
+
+      // Navbar Scroll Shadow & Blur Effect
+      window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery - Seeds of Success</title>
+    <link rel="icon" type="image/x-icon" href="assets/seeds-of-success-logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <div class="logo-icon"></div>
+          <span class="logo-text">Seeds of Success</span>
+        </a>
+        <nav class="nav-links" id="navLinks">
+          <a href="index.html">HOME</a>
+          <a href="about.html">ABOUT</a>
+          <a href="gallery.html" class="active">GALLERY</a>
+          <a href="resources.html">RESOURCES</a>
+          <a href="#contact">CONTACT</a>
+        </nav>
+        <div class="hamburger" id="hamburger"><i class="fa-solid fa-bars-staggered"></i></div>
+      </div>
+    </header>
+
+    <!-- PAGE HERO HEADER -->
+    <section class="page-hero hero-gallery">
+      <div class="hero-overlay"></div>
+      <div class="hero-content fade-in">
+        <h1>Gallery</h1>
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section class="gallery-section">
+      <div class="gallery-header fade-in text-center">
+        <h2 class="section-title">Science in Action</h2>
+        <p class="section-desc max-w-700">
+          Welcome to our visual archive! This gallery is an archive of past Science on the Move (SoTM) camp activities and documentation of students, families, and mentors who made Science on the Move (SoTM) an unforgettable experience in their lives. These moments capture the transformative experiences of the migrant youths.</p>
+      </div>
+
+      <div class="gallery-wrap fade-in">
+        <div class="photo-masonry">
+          <!-- Photo 1: Tall / Featured -->
+          <div class="photo-card tall">
+            <img src="assets/experiment2.jpeg" alt="Mentor and students pouring liquid into plant cups for a science experiment.">
+          </div>
+
+          <!-- Photo 2 -->
+          <div class="photo-card">
+            <img src="assets/lights-camp.jpg" alt="Student holding a small lit LED sample.">
+          </div>
+
+          <!-- Photo 3 -->
+          <div class="photo-card">
+            <img src="assets/pacas.jpeg" alt="Trailers loaded with stacked hay bales parked inside a barn.">
+          </div>
+
+          <!-- Photo 4 -->
+          <div class="photo-card">
+            <img src="assets/water.jpeg" alt="Students looking into indoor water raceways or fish tanks.">
+          </div>
+
+          <!-- Photo 5 -->
+          <div class="photo-card">
+            <img src="assets/sotm-bg.jpg" alt="Group of students and mentors posing outdoors by the UNCA bulldog statue.">
+          </div>
+
+          <!-- Photo 6: Wide -->
+          <div class="photo-card wide">
+            <img src="assets/photo21.jpg" alt="Student conducting a science experiment with wires, cups, and limes on a lab table.">
+          </div>
+
+          <!-- Photo 7 -->
+          <div class="photo-card">
+            <img src="assets/photo24.jpg" alt="Children feeding a calf with a bottle in a barn filled with straw.">
+          </div>
+
+          <!-- Photo 8 -->
+          <div class="photo-card">
+            <img src="assets/photo25.jpg" alt="A bowl of fresh peaches.">
+          </div>
+
+          <!-- Photo 9 -->
+          <div class="photo-card">
+            <img src="assets/hickory.JPG" alt="Mentors and students serving and selecting brownies from plates on a cart.">
+          </div>
+
+          <!-- Photo 10 -->
+          <div class="photo-card">
+            <img src="assets/rocket.jpg" alt="Model rocket launching on a grassy field with students and mentors watching.">
+          </div>
+
+          <!-- Photo 11: Wide -->
+          <div class="photo-card wide">
+            <img src="assets/chocolate.jpeg" alt="Students and a mentor tasting cacao samples at a table.">
+          </div>
+
+          <!-- Photo 12 -->
+          <div class="photo-card">
+            <img src="assets/fishing.JPG" alt="Containers and buckets with fish collected from a stream.">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER / CONTACT SECTION -->
+    <footer class="footer-section" id="contact">
+      <div class="footer-content fade-in">
+        <h3>Interested in learning more?</h3>
+        <p>We'd love to hear from you.</p>
+        <a href="contact.html" class="btn btn-terracotta btn-lg">Contact us!</a>
+      </div>
+      <div class="footer-bottom">
+        <p>@2026 McCullough - UNCA</p>
+      </div>
+    </footer>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="imageLightbox" class="lightbox">
+      <span class="lightbox-close">&times;</span>
+      <img class="lightbox-content" id="lightboxImg" alt="Enlarged gallery view">
+      <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+
+    <script>
+      document.getElementById('hamburger').addEventListener('click', () => {
+        document.getElementById('navLinks').classList.toggle('open');
+      });
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+      // LIGHTBOX FUNCTIONALITY
+      const lightbox = document.getElementById('imageLightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      const closeBtn = document.querySelector('.lightbox-close');
+
+      document.querySelectorAll('.photo-card img').forEach(img => {
+        img.addEventListener('click', () => {
+          lightbox.classList.add('active');
+          lightboxImg.src = img.src;
+          lightboxCaption.textContent = img.alt;
+        });
+      });
+
+      closeBtn.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+      });
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          lightbox.classList.remove('active');
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+          lightbox.classList.remove('active');
+        }
+      });
+    </script>
+  </body>
+
+</html>

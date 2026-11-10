@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f6fbe9">
+    <title>Food System | Seeds of Success</title>
+    <link rel="icon" type="image/x-icon" href="assets/seeds-of-success-logo.svg">
+
+    <!-- Google Fonts matching the reference hierarchy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css-js-files/module2.css">
+  </head>
+
+  <body>
+    <!-- Top Navigation Bar -->
+    <header class="topbar-container">
+      <nav class="topbar">
+        <a class="brand" href="index.html" aria-label="Seeds of Success home">
+          <img src="assets/seeds-of-success-logo.svg" width="48" height="48" alt="Seeds of Success Logo">
+          <span class="brand-title">Seeds of Success</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="index.html" class="nav-item">HOME</a>
+          <a href="about.html" class="nav-item">ABOUT</a>
+          <a href="gallery.html" class="nav-item">GALLERY</a>
+          <a href="resources.html" class="nav-item">RESOURCES</a>
+          <a href="contact.html" class="nav-item">CONTACT</a>
+        </div>
+
+        <div class="nav-actions">
+          <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="true">Sound on</button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="game-wrapper">
+      <!-- 1. Welcome Screen -->
+      <div id="start-screen" class="screen active">
+        <div class="card">
+          <h1>Food System Lab Mystery</h1>
+          <p>Welcome! Today, we study <strong>sustainable agriculture</strong> (how to grow healthy food without hurting nature). Can you find the clues to save our food crops?</p>
+          <button id="enter-lab-btn" class="btn">Enter Lab &rarr;</button>
+        </div>
+      </div>
+
+      <!-- 2. Main Lab Screen (Find 3 Clues) -->
+      <div id="lab-screen" class="screen">
+        <div class="instructions-banner">
+          <h2>Step 1: Find 3 Clues</h2>
+          <p>Click on the Air Vent, Microscope, and Journals in the laboratory.</p>
+          <div id="tracker">Found: <span id="found-count">0</span> / 3</div>
+        </div>
+
+        <div id="lab-container">
+          <img src="assets/laboratory.jpeg" alt="Science Laboratory" id="lab-background">
+
+          <div class="clue-hotspot" style="top: 25%; left: 15%;" data-clue="vent">
+            <img src="assets/air-vent.png" alt="Air Vent" class="clue-img">
+          </div>
+          <div class="clue-hotspot" style="top: 58%; left: 62%;" data-clue="microscope">
+            <img src="assets/microscope.png" alt="Microscope" class="clue-img">
+          </div>
+          <div class="clue-hotspot" style="top: 70%; left: 30%;" data-clue="journals">
+            <img src="assets/journals.webp" alt="Journals" class="clue-img">
+          </div>
+        </div>
+      </div>
+
+      <!-- Clue Pop-up Modal -->
+      <div id="modal-screen" class="modal hidden">
+        <div class="modal-content">
+          <h2 id="clue-title">Clue Found!</h2>
+          <p id="clue-text" class="riddle-text"></p>
+          <button id="close-modal-btn" class="btn">Continue &rarr;</button>
+        </div>
+      </div>
+
+      <!-- 3. Hypothesis Screen -->
+      <div id="hypothesis-screen" class="screen">
+        <div class="card wide">
+          <h1>Step 2: Make a Guess (Hypothesis)</h1>
+          <p>Why do we need healthy seeds and clean air to grow food for our communities?</p>
+          <div class="options-container">
+            <button class="hypothesis-btn" data-correct="false">A. We do not need plants to eat food.</button>
+            <button class="hypothesis-btn" data-correct="true">B. Sustainable agriculture protects the environment, stops waste, and gives us safe food.</button>
+            <button class="hypothesis-btn" data-correct="false">C. Chemicals are always best for farms.</button>
+          </div>
+          <p id="hypo-error" class="error hidden">Not quite. Think about protecting nature and our food!</p>
+        </div>
+      </div>
+
+      <!-- 4. Beaker Scans Screen -->
+      <div id="beaker-screen" class="screen">
+        <div class="card wide">
+          <h1>Step 3: Test the Plant Samples</h1>
+          <p>Choose the correct beaker sample to help sustainable crops grow strong:</p>
+          <div class="beakers-row">
+            <div class="beaker" data-beaker="1">🧪 Beaker A<br><span>Heavy Chemicals</span></div>
+            <div class="beaker" data-beaker="2">🧪 Beaker B<br><span>Natural Compost & Nutrients</span></div>
+            <div class="beaker" data-beaker="3">🧪 Beaker C<br><span>Polluted Water</span></div>
+          </div>
+          <p id="beaker-msg" class="error hidden">That harms the soil! Try a natural sample.</p>
+        </div>
+      </div>
+
+      <!-- 5. Evidence Grid Screen -->
+      <div id="evidence-screen" class="screen">
+        <div class="card wide">
+          <h1>Step 4: Match the Evidence</h1>
+          <p>Match each lab tool to its correct food system purpose:</p>
+          <div class="grid-container">
+            <div class="grid-item">
+              <span>Source: Air Vent</span>
+              <select id="grid-opt-1">
+                <option value="">-- Choose Purpose --</option>
+                <option value="correct">Clean air keeps farm plants healthy</option>
+                <option value="wrong">Used to write stories</option>
+              </select>
+            </div>
+            <div class="grid-item">
+              <span>Source: Journals</span>
+              <select id="grid-opt-2">
+                <option value="">-- Choose Purpose --</option>
+                <option value="wrong">Makes the room cold</option>
+                <option value="correct">Record data on seed growth</option>
+              </select>
+            </div>
+          </div>
+          <button id="submit-grid-btn" class="btn" style="margin-top: 20px;">Check Answers &rarr;</button>
+          <p id="grid-error" class="error hidden">Check your matches and try again!</p>
+        </div>
+      </div>
+
+      <!-- 6. Security Code & Final Riddle Screen -->
+      <div id="security-screen" class="screen">
+        <div class="card">
+          <h1>Step 5: Final Food System Code</h1>
+          <p>Solve this simple riddle to unlock the lab door:</p>
+          <p class="riddle-box"><em>"I grow in the ground from a tiny seed, providing food for people and nature. What am I? (Hint: starts with 'p')"</em></p>
+          <input type="text" id="security-input" placeholder="Type one word...">
+          <button id="submit-code-btn" class="btn">Unlock Door &rarr;</button>
+          <p id="code-error" class="error hidden">Try again! Think about food growing in soil.</p>
+        </div>
+      </div>
+
+      <!-- 7. Finish Screen -->
+      <div id="finish-screen" class="screen">
+        <div class="card">
+          <h1>Mission Complete! 🌟</h1>
+          <p>Great job! You learned how sustainable agriculture helps our environment, our food, and our future!</p>
+          <button id="restart-btn" class="btn">Play Again ↻</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer matching reference -->
+    <footer class="site-footer">
+      <p>@2026 McCullough - UNCA</p>
+    </footer>
+
+    <script src="css-js-files/module2.js"></script>
+  </body>
+
+</html>

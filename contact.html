@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Seeds of Success</title>
+    <link rel="icon" type="image/x-icon" href="assets/seeds-of-success-logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- FLOATING DECORATIVE LEAVES -->
+    <div class="floating-leaf leaf-1"><i class="fa-solid fa-leaf"></i></div>
+    <div class="floating-leaf leaf-2"><i class="fa-solid fa-seedling"></i></div>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <div class="logo-icon"></div>
+          <span class="logo-text">Seeds of Success</span>
+        </a>
+        <nav class="nav-links" id="navLinks">
+          <a href="index.html">HOME</a>
+          <a href="about.html">ABOUT</a>
+          <a href="gallery.html">GALLERY</a>
+          <a href="resources.html">RESOURCES</a>
+          <a href="contact.html" class="active">CONTACT</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero hero-contact">
+      <div class="hero-overlay"></div>
+      <div class="hero-content fade-in">
+        <h1>Get in Touch</h1>
+        <p>Connecting community, education, and sustainable agriculture.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT MAIN SECTION -->
+    <section class="contact-page-section">
+      <div class="contact-container fade-in">
+        <div class="contact-info-panel">
+          <span class="sub-heading" style="color: var(--wheat-gold);">Reach Out</span>
+          <h2>Let's Connect</h2>
+          <p>Whether you're interested in our learning modules, educational advocacy, or collaborative research, we'd love to hear from you.</p>
+
+          <div class="contact-detail-list">
+            <div class="contact-detail-item">
+              <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <h4>Email Us</h4>
+                <p>info@seedsofsuccess.org</p>
+              </div>
+            </div>
+
+            <div class="contact-detail-item">
+              <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <h4>Location</h4>
+                <p>Asheville, NC</p>
+              </div>
+            </div>
+
+            <div class="contact-detail-item">
+              <div class="contact-icon"><i class="fa-solid fa-seedling"></i></div>
+              <div>
+                <h4>Partnership & Advocacy</h4>
+                <p>Migrant Education & Sustainability Initiatives</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-panel">
+          <form class="contact-form" action="#" method="POST">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject">
+                <option value="general">General Inquiry</option>
+                <option value="modules">Interactive Learning Modules</option>
+                <option value="vr">VR Experience</option>
+                <option value="collaboration">Research & Collaboration</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-terracotta btn-lg" style="width: 100%; justify-content: center;">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-section">
+      <div class="footer-bottom">
+        <p>@2026 McCullough - UNCA</i></p>
+      </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+  </body>
+
+</html>

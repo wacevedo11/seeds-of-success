@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seeds of Success | Sustainable Agriculture Hub</title>
+    <link rel="icon" type="image/x-icon" href="assets/seeds-of-success-logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <div class="logo-icon"></div>
+          <span class="logo-text">Seeds of Success</span>
+        </a>
+        <nav class="nav-links" id="navLinks">
+          <a href="#home">HOME</a>
+          <a href="about.html">ABOUT</a>
+          <a href="gallery.html">GALLERY</a>
+          <a href="resources.html">RESOURCES</a>
+          <a href="contact.html">CONTACT</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- INTERACTIVE MODULES SECTION -->
+    <section class="modules-section" id="modules">
+      <div class="section-header fade-in">
+        <span class="sub-heading"></span>
+        <p</p>
+      </div>      
+
+      <div class="cards-container">
+        <div class="card card-food fade-in">
+          <h3>Homemade Apple Jelly</h3>
+          <p>Explore Western NC to learn how sustainable farming makes our local food system thrive. Complete fun orchard challenges in 4 key counties, test your STEM knowledge, and claim 4 local apple jelly jars!</p>
+          <a href="applejelly.html" class="btn btn-pill"><i class="fa-solid fa-play"></i> Interactive</a>
+        </div>
+
+        <div class="card card-soil fade-in">
+          <h3>Food System Lab Mystery</h3>
+          <p>Food System Lab Mystery is where students step into the role of agricultural detectives. By exploring sustainable farming and uncovering scientific clues, young learners investigate how to grow healthy food while protecting the environment and saving vital food crops.</p>
+          <a href="module2.html" class="btn btn-pill"><i class="fa-solid fa-play"></i> Interactive</a>
+        </div>
+
+        <div class="card card-water fade-in">
+          <h3>Chocolate Bar</h3>
+          <p>Students explore the fascinating journey of chocolate production from harvesting  cacao pods and sun-drying fermented beans to roasting and tempering smooth chocolate bars. This module brings food systems and sustainable agriculture to life.</p>
+          <a href="chocobar.html" class="btn btn-pill"><i class="fa-solid fa-play"></i> Interactive</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER / CONTACT SECTION -->
+    <footer class="footer-section" id="contact">
+      <div class="footer-content fade-in">
+        <h3></h3>
+        <p></p>
+      </div>
+      <div class="footer-bottom">
+        <p>@2026 McCullough - UNCA</p>
+      </div>
+    </footer>
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY & ANIMATIONS -->
+    <script>
+      // Mobile navigation toggle
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+
+      // Scroll Animation Observer
+      const observerOptions = {
+        threshold: 0.12
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-in').forEach(element => {
+        observer.observe(element);
+      });
+
+      // Navbar Scroll Shadow & Blur Effect
+      window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+    </script>
+  </body>
+
+</html>
