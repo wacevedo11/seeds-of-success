@@ -3,15 +3,15 @@ const $ = (id) => document.getElementById(id);
 let voiceOn = true, musicOn = false, stars = 0, currentStep = 0;
 let audioCtx;
 let currentRiverIndex = 0;
-const riverAssets = ['assets/gallery/river.webp', 'assets/gallery/river2.jpg'];
+const riverAssets = ['gallery/river.webp', 'gallery/river2.jpg'];
 
 // Preload user assets
 const imgFish1 = new Image();
-imgFish1.src = 'assets/home/fish.png';
+imgFish1.src = 'home/fish.png';
 const imgFish2 = new Image();
-imgFish2.src = 'assets/home/fish2.png';
+imgFish2.src = 'home/fish2.png';
 const imgRiverBg = new Image();
-imgRiverBg.src = 'assets/gallery/river.webp';
+imgRiverBg.src = 'gallery/river.webp';
 
 let quizAnswersCorrect = [false, false, false];
 
