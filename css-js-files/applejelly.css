@@ -81,7 +81,7 @@ button {
 .logo-icon {
   width: 54px;
   height: 54px;
-  background: url('../assets/seeds-of-success-logo.svg') center/cover no-repeat;
+  background: url('../assets/home/seeds-of-success-logo.svg') center/cover no-repeat;
   border-radius: 50%;
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
